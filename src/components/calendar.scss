@@ -1,0 +1,74 @@
+@import '../styles/variables';
+
+.calendar {
+  display: flex;
+  max-width: 60%;
+}
+
+.container {
+  background-color: $Very-Dark-Desaturated-Blue;
+  border-radius: 8px;
+  padding: 40px;
+  z-index: 1;
+}
+
+.header {
+  font-size: $font-size;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 15%;
+  h1 {
+    color: $color;
+    font-size: $font-size-l;
+  }
+  p {
+    margin: 5px 0;
+  }
+  .icon,
+  p {
+    cursor: pointer;
+    &:hover,
+    &:active {
+      color: $color;
+    }
+  }
+}
+
+.row-days {
+  display: flex;
+}
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.day {
+  border-radius: 3px;
+  color: $very-Light-Grayish-Blue;
+  padding: 10px 5px;
+  &.prev-month,
+  &.next-month {
+    color: $dark-Grayish-Blue;
+  }
+  &.today {
+    background-color: $color;
+  }
+  border: none;
+  border: 1px solid $Very-Dark-Desaturated-Blue;
+  &:hover:not(div) {
+    border: 1px solid $dark-Grayish-Blue;
+    background-color: hsla(236, 9%, 61%, 0.5);
+    transition: background-color 0.3s linear;
+  }
+  background-color: transparent;
+}
+
+.withTodos {
+  border: 1px solid $color;
+
+  border-radius: 50%;
+}
