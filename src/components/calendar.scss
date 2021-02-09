@@ -6,8 +6,12 @@
 }
 
 .container {
-  background-color: $Very-Dark-Desaturated-Blue;
-  border-radius: 8px;
+  //background-color: $Very-Dark-Desaturated-Blue;
+  border-radius: 20px;
+  // box-shadow: 2px 2px 2px $Very-Dark-Desaturated-Blue,
+  //   -2px -2px 2px $Very-Dark-Grayish-Blue-2;
+  box-shadow: -2px -2px inset rgba(255, 255, 255, 0.04),
+    3px 3px inset rgba(0, 0, 0, 0.2);
   padding: 40px;
   z-index: 1;
 }
@@ -38,7 +42,11 @@
 }
 
 .row-days {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  .day {
+    box-shadow: none;
+  }
 }
 .days-container {
   display: grid;
@@ -49,7 +57,10 @@
 .day {
   border-radius: 3px;
   color: $very-Light-Grayish-Blue;
-  padding: 10px 5px;
+  padding: 20px;
+  background-color: transparent;
+  border: none;
+  box-shadow: -4px -4px 2px 0px inset #00000099, -2px -2px 3px 0px #ffffff11;
   &.prev-month,
   &.next-month {
     color: $dark-Grayish-Blue;
@@ -57,14 +68,19 @@
   &.today {
     background-color: $color;
   }
-  border: none;
-  border: 1px solid $Very-Dark-Desaturated-Blue;
   &:hover:not(div) {
-    border: 1px solid $dark-Grayish-Blue;
+    box-shadow: -2px 2px 0px 0px inset #00000099, 1px 0px 0px 0px #ffffff11;
     background-color: hsla(236, 9%, 61%, 0.5);
     transition: background-color 0.3s linear;
   }
-  background-color: transparent;
+  &:focus,
+  &:active {
+    outline: none;
+  }
+  &:active {
+    transform: translateY(2px);
+    opacity: 0.5;
+  }
 }
 
 .withTodos {

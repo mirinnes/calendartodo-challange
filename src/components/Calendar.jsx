@@ -106,16 +106,19 @@ function Calendar() {
   const [stateTodos, setstateTodos] = useState(initialState);
   const [showTodoList, setshowTodoList] = useState(false);
   const [selectedDay, setselectedDay] = useState();
+
   const handlePreviousMonth = () => {
     date.setMonth(date.getMonth() - 1);
     renderCalendar();
     addEventToDay(document.querySelectorAll('.day'));
+    checkDaysWithTodos(document.querySelectorAll('.day'));
   };
 
   const handleNextMonth = () => {
     date.setMonth(date.getMonth() + 1);
     renderCalendar();
     addEventToDay(document.querySelectorAll('.day'));
+    checkDaysWithTodos(document.querySelectorAll('.day'));
   };
 
   const handleCurrentDate = () => {
